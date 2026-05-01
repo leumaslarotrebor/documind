@@ -1,0 +1,5 @@
+Q: What is the candidate name?
+A: Samuel Oral Robert V
+
+Q: What is Smart FarmX?
+A: IoT-based drone system for crop monitoring
