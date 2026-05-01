@@ -12,7 +12,7 @@ class QueryRequest(BaseModel):
     question: str
 
 
-def split_text(text, chunk_size=200):
+def split_text(text, chunk_size=1000):
     chunks = []
     for i in range(0, len(text), chunk_size):
         chunks.append(text[i:i + chunk_size])
@@ -21,7 +21,7 @@ def split_text(text, chunk_size=200):
 
 @app.get("/")
 def home():
-    return {"status": "DocuMind API running"}
+    return {"status": "DocuMind running"}
 
 
 @app.post("/upload")
@@ -29,20 +29,18 @@ async def upload_pdf(file: UploadFile = File(...)):
     global stored_chunks
 
     if not file.filename.endswith(".pdf"):
-        return {"error": "Please upload a PDF file"}
+        return {"error": "Upload PDF only"}
 
     text = read_pdf(file.file)
 
     if not text.strip():
-        return {"error": "No readable text found in PDF"}
+        return {"error": "Empty PDF"}
 
     stored_chunks = split_text(text)
-    print(f"[INFO] Created {len(stored_chunks)} chunks")
-
     build_index(stored_chunks)
 
     return {
-        "message": "File uploaded and processed successfully",
+        "message": "PDF processed",
         "chunks": len(stored_chunks)
     }
 
@@ -50,18 +48,11 @@ async def upload_pdf(file: UploadFile = File(...)):
 @app.post("/ask")
 def ask_question(request: QueryRequest):
     if not stored_chunks:
-        return {"error": "Upload a document first"}
+        return {"error": "Upload PDF first"}
 
     results = search(request.question)
 
-    # smarter filtering
-    for chunk in results:
-        if "samuel" in chunk.lower():
-            return {"answer": chunk}
+    if not results:
+        return {"answer": "No relevant info found"}
 
-    # fallback
-    best_match = results[0] if results else "No relevant answer found"
-
-    return {
-        "answer": best_match
-    }
+    return {"answer": results[0]}

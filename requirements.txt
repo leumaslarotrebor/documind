@@ -1,6 +1,4 @@
 fastapi
 uvicorn
 pypdf
-faiss-cpu
-numpy
 python-multipart

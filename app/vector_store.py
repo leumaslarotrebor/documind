@@ -1,10 +1,3 @@
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
-
-
-model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
-index = None
 documents = []
 
 def build_index(chunks):
