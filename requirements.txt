@@ -3,6 +3,4 @@ uvicorn
 pypdf
 faiss-cpu
 numpy
-sentence-transformers
 python-multipart
-

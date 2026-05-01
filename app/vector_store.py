@@ -7,32 +7,17 @@ model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 index = None
 documents = []
 
-
 def build_index(chunks):
-    global index, documents
-
+    global documents
     documents = chunks
-
-    embeddings = model.encode(chunks)
-    embeddings = np.array(embeddings).astype("float32")
-
-    dimension = embeddings.shape[1]
-    index = faiss.IndexFlatL2(dimension)
-    index.add(embeddings)
-
-    print(f"[INFO] Indexed {index.ntotal} chunks")
+    print(f"[INFO] Stored {len(documents)} chunks")
 
 
 def search(query, top_k=3):
-    global index
+    results = []
 
-    if index is None:
-        return []
+    for chunk in documents:
+        if query.lower() in chunk.lower():
+            results.append(chunk)
 
-    query_vector = model.encode([query])
-    query_vector = np.array(query_vector).astype("float32")
-
-    distances, indices = index.search(query_vector, top_k)
-
-    results = [documents[i] for i in indices[0]]
-    return results
+    return results[:top_k]
