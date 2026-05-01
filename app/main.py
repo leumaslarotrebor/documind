@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from app.pdf_utils import read_pdf
 from app.vector_store import build_index, search
 
-
 app = FastAPI()
 
 stored_chunks = []
