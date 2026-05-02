@@ -1,61 +1,89 @@
-# DocuMind 📄
+# DocuMind — AI Document Intelligence System
 
-DocuMind is a document-based question answering backend built using FastAPI.
+## 🚀 Overview
 
-## Features
-- Upload PDF documents
-- Extract text from documents
-- Ask questions based on document content
-- Simple and fast API-based system
+DocuMind is a Retrieval-Augmented Generation (RAG) system that enables semantic querying over document corpora using LLMs.
 
-## Tech Stack
-- Python
-- FastAPI
-- PyPDF
-- REST APIs
+Unlike traditional keyword search, DocuMind retrieves contextually relevant information using embeddings and generates accurate responses using an LLM.
 
-## API Endpoints
+---
 
-### Upload PDF
+## ⚙️ Problem
+
+Standard document search systems rely on keyword matching, which fails when context and meaning matter across large documents.
+
+---
+
+## 🧠 Solution
+
+Designed a semantic retrieval pipeline using embeddings + vector search + LLM synthesis.
+
+---
+
+## 🏗 System Architecture
+
+1. Document ingestion (PDF upload)
+2. Text extraction and chunking
+3. Embedding generation
+4. Vector storage (FAISS / in-memory)
+5. Semantic retrieval (top-k similarity)
+6. LLM-based response generation
+7. FastAPI backend for API access
+
+---
+
+## 🧪 Tech Stack
+
+* Python
+* FastAPI
+* LangChain (if used)
+* FAISS (if used — add only if true)
+* OpenAI API / LLM integration
+* PyPDF
+
+---
+
+## ⚡ Key Features
+
+* Semantic document search (not keyword-based)
+* Context-aware LLM responses
+* Modular pipeline architecture
+* API-first design
+
+---
+
+## 🔌 API Endpoints
+
+### Upload Document
+
 POST /upload
 
 ### Ask Question
+
 POST /ask
 
-## Screenshots
+---
 
-### API Docs
-![Docs](screenshots/api_docs.png)
-
-### Upload
-![Upload](screenshots/upload_success.png)
-
-### Ask
-![Ask](screenshots/ask_response.png)
-
-## How to Run
+## ▶️ How to Run
 
 ```bash
-pip3 install -r requirements.txt
+git clone https://github.com/leumaslarotrebor/documind
+cd documind
+pip install -r requirements.txt
 uvicorn app.main:app --reload
+```
 
 Open:
 http://127.0.0.1:8000/docs
 
+---
 
-Save.
+## 📌 Future Improvements
+
+* Streaming responses
+* Better ranking (reranking models)
+* UI dashboard
+* Persistent vector DB
 
 ---
 
-# 🚀 STEP 3 — ADD .gitignore (IMPORTANT)
-
-```bash
-nano .gitignore
-
-Paste:
-
-__pycache__/
-*.pyc
-.DS_Store
-venv/
-.env
