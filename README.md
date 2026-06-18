@@ -122,3 +122,16 @@ Samuel Oral Robert V
 GitHub: https://github.com/leumaslarotrebor
 Portfolio: https://leumaslarotrebor.github.io
 LinkedIn: https://linkedin.com/in/samuel-oral-robert-v-4226813a4/
+
+---
+
+## Demo
+
+### Upload a PDF
+![Upload Demo](assets/demo_upload.png)
+
+### Query the Document
+![Query Demo](assets/demo_query.png)
+
+### API Overview
+![Swagger UI](assets/demo_swagger.png)
