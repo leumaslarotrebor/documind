@@ -11,7 +11,6 @@
 ## How It Works
 PDF Upload -> Text Extraction -> Chunking (1000 chars)
 
-|
 
 Sentence Embeddings (all-MiniLM-L6-v2)
 
