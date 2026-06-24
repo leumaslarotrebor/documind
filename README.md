@@ -122,7 +122,6 @@ Portfolio: https://leumaslarotrebor.github.io
 LinkedIn: https://linkedin.com/in/samuel-oral-robert-v-4226813a4/
 
 ---
-Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 
 
 ## Demo
