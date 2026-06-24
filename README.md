@@ -5,7 +5,6 @@
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 > RAG-based document intelligence system — upload a PDF, ask questions in natural language, get context-aware answers using semantic search and sentence embeddings.
-Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
 ---
 
 ## How It Works
@@ -123,6 +122,8 @@ Portfolio: https://leumaslarotrebor.github.io
 LinkedIn: https://linkedin.com/in/samuel-oral-robert-v-4226813a4/
 
 ---
+Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+
 
 ## Demo
 
